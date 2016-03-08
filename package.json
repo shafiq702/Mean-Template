@@ -4,8 +4,21 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon ./server.js"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "angular": "^1.4.8",
+    "angular-ui-router": "^0.2.18",
+    "bluebird": "^3.1.1",
+    "body-parser": "^1.14.2",
+    "express": "^4.13.3",
+    "express-session": "^1.12.1",
+    "install": "^0.4.1",
+    "mongoose": "^4.3.3",
+    "nodemon": "^1.8.1",
+    "npm": "^3.5.2"
+  }
 }

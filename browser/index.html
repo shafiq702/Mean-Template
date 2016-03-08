@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Title</title>
+  <!-- angular module depenencies -->
+  <script src="/angular/angular.min.js"></script>
+  <script src="/angular-ui-router/release/angular-ui-router.min.js"></script>
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <!-- local files -->
+
+  <!-- local dependencies -->
+  <script src="/app.js"></script>
+
+  <script src="/app/home/home.state.js" defer></script>
+  <script src="/app/home/home.controller.js" defer></script>
+
+  <script src="/components/navbar-directive.js" defer></script>
+
+</head>
+
+<body ng-app="main">
+  <div id="intro">
+    <navbar></navbar>
+    <ui-view></ui-view>
+  </div>
+  <!-- jQuery -->
+  <script src="//code.jquery.com/jquery.js"></script>
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+</body>
+
+</html>
