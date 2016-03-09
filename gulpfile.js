@@ -40,7 +40,7 @@ gulp.task('lintJS', function () {
 });
 
 gulp.task('buildJS', ['lintJS'], function () {
-    return gulp.src(['./browser/app/app.js', './browser/app/**/*.js'])
+    return gulp.src(['./browser/*.js', './browser/app/app.js', './browser/app/**/*.js'])
         .pipe(plumber())
         .pipe(sourcemaps.init())
         .pipe(concat('main.js'))
@@ -75,7 +75,7 @@ gulp.task('buildCSSProduction', function () {
 });
 
 gulp.task('buildJSProduction', function () {
-    return gulp.src(['./browser/app/app.js', './bowser/app/**/*.js'])
+    return gulp.src(['./browser/*.js', './browser/app/app.js', './bowser/app/**/*.js'])
         .pipe(concat('main.js'))
         .pipe(babel())
         .pipe(ngAnnotate())
