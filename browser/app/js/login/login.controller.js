@@ -1,8 +1,8 @@
-app.controller('LoginCtrl', function($scope, AuthFactory){
+app.controller('LoginCtrl', function($scope, AuthFactory, $state){
   $scope.submitLogin = function(){
 		AuthFactory.login($scope.user)
 		.then(function(){
-			$state.go('dashboard')
+			$state.go('AdminState')
 		})
 		.then(function(){
 			$scope.user = {};
@@ -11,5 +11,4 @@ app.controller('LoginCtrl', function($scope, AuthFactory){
 			console.log(err)
 		})
 	}
-
 });
