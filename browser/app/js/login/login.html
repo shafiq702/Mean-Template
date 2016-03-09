@@ -1,0 +1,14 @@
+<div class="hgroup">
+  <h1>Login Form</h1>
+</div>
+<form id="login-form" ng-submit=submitLogin() role="form">
+  <div class="group">
+    <label>Username</label>
+    <input ng-model="user.username" type="text">
+  </div>
+  <div class="group">
+    <label>Password</label>
+    <input ng-model="user.password" type="password">
+  </div>
+  <button type="submit" class="button buttonBlue">Login</button>
+</form>
