@@ -57,3 +57,6 @@ input {
 
 .buttonBlue:hover {
   background: #357bd8; }
+
+.dashboard-container {
+  margin: 80px; }

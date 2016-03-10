@@ -1,4 +1,4 @@
-app.controller('PostsCtrl', function($scope){
+app.controller('CreateCtrl', function($scope){
   tinymce.init({
     selector: 'textarea',
     height: 500,
