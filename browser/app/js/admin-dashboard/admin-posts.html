@@ -1,0 +1,31 @@
+<div class="container">
+<form class="form-inline">
+  <div class="form-group">
+    <input type="text" class="form-control" placeholder="Search Post">
+  </div>
+  <button type="submit" class="btn btn-success">Create Post</button>
+</form>
+<br>
+  <div class="table-responsive">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Title</th>
+        <th>Status</th>
+        <th>Author</th>
+        <th>Published Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>{{post.title}}</td>
+        <td>{{post.status}}</td>
+        <td>{{post.author}}</td>
+        <td>{{post.date}}</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+</div>

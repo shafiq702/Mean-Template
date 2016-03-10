@@ -3,5 +3,5 @@ app.config(function ($stateProvider) {
 		url: '/admin',
 		templateUrl: 'app/js/admin-dashboard/admin-dashboard.html',
     controller: 'AdminCtrl'
-	});
+	})
 });
