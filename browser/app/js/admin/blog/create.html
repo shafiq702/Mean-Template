@@ -1,7 +1,12 @@
 <div class="dashboard-container">
   <button type="button" class="btn pull-right btn-info pull-left" ui-sref="AdminPosts">Posts</button>
-  <input placeholder="Title"></input>
-  <textarea></textarea>
-  <br>
-  <button type="button" class="btn pull-right btn-success" ui-sref="CreateState">Create Post</button>
+  <form ng-submit=createPost() role="form">
+    <div class="group">
+      <input ng-model="htmlVariable.title" type="text" placeholder="Title">
+    </div>
+    <div class="group">
+      <div text-angular ng-model="htmlVariable.body"></div>
+    </div>
+    <button type="submit" class="btn btn-success pull-right">Create Post</button>
+  </form>
 </div>

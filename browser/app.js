@@ -1,4 +1,4 @@
-var app = angular.module('main', ['ui.router']);
+var app = angular.module('main', ['ui.router', 'textAngular']);
 app.config(function($urlRouterProvider, $locationProvider){
 	// This turns off hashbang urls (/#about) and changes it to something normal (/about)
 	// $locationProvider.html5Mode(true);
