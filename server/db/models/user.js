@@ -1,51 +1,26 @@
+// load the things we need
 var mongoose = require('mongoose');
-var crypto = require('crypto');
-var _ = require('lodash');
-
-var schema = new mongoose.Schema({
-
-  name: {type: String},
-  email: {type: String, required: true, unique: true},
-  salt: {type: String},
-  password: {type: String, required: true}
-
-})
-
-
-// method to remove sensitive information from user objects before sending them out
-schema.methods.sanitize = function () {
-    return _.omit(this.toJSON(), ['password', 'salt']);
-};
-
-// generateSalt, encryptPassword and the pre 'save' and 'correctPassword' operations
-// are all used for local authentication security.
-var generateSalt = function () {
-    return crypto.randomBytes(16).toString('base64');
-};
-
-var encryptPassword = function (plainText, salt) {
-    var hash = crypto.createHash('sha1');
-    hash.update(plainText);
-    hash.update(salt);
-    return hash.digest('hex');
-};
-
-schema.pre('save', function (next) {
-
-    if (this.isModified('password')) {
-        this.salt = this.constructor.generateSalt();
-        this.password = this.constructor.encryptPassword(this.password, this.salt);
-    }
-
-    next();
-
+var bcrypt   = require('bcrypt-nodejs');
+var passportLocalMongoose = require('passport-local-mongoose');
+var Schema = mongoose.Schema;
+// define the schema for our user model
+var userSchema = new Schema({
+        username: String,
+        password: String,
+        name: String
 });
 
-schema.statics.generateSalt = generateSalt;
-schema.statics.encryptPassword = encryptPassword;
+// methods ======================
+// generating a hash
+// userSchema.methods.generateHash = function(password) {
+//     return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
+// };
+//
+// // checking if password is valid
+// userSchema.methods.validPassword = function(password) {
+//     return bcrypt.compareSync(password, this.local.password);
+// };
 
-schema.method('correctPassword', function (candidatePassword) {
-    return encryptPassword(candidatePassword, this.salt) === this.password;
-});
-
-mongoose.model('User', schema);
+userSchema.plugin(passportLocalMongoose);
+// create the model for users and expose it to our app
+module.exports = mongoose.model('User', userSchema);

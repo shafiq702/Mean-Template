@@ -1,12 +1,11 @@
 <div class="dashboard-container">
-  <button type="button" class="btn pull-right btn-info pull-left" ui-sref="AdminPosts">Posts</button>
   <form ng-submit=createPost() role="form">
     <div class="group">
-      <input ng-model="htmlVariable.title" type="text" placeholder="Title">
+      <input ng-model="htmlVariable.title" type="text" class="form-control form-control-lg" placeholder="Title">
     </div>
     <div class="group">
       <div text-angular ng-model="htmlVariable.body"></div>
     </div>
-    <button type="submit" class="btn btn-success pull-right">Create Post</button>
+    <button type="submit" class="btn btn-lg btn-success pull-right">Pushlish</button>
   </form>
 </div>

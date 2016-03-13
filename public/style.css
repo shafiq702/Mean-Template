@@ -1,6 +1,9 @@
 * {
   box-sizing: border-box; }
 
+input {
+  margin-bottom: 1000px; }
+
 #login-form {
   width: 380px;
   margin: 4em auto;

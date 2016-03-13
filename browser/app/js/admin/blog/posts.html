@@ -14,7 +14,6 @@
     <table class="table">
       <thead>
         <tr>
-          <th>#</th>
           <th>Title</th>
           <th>Status</th>
           <th>Author</th>
@@ -22,10 +21,9 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td></td>
+        <tr ng-repeat="post in allPosts">
           <td>{{post.title}}</td>
-          <td>{{post.status}}</td>
+          <td>{{post.state}}</td>
           <td>{{post.author}}</td>
           <td>{{post.date}}</td>
         </tr>

@@ -1,7 +1,16 @@
-app.controller('CreateCtrl', function($scope){
+app.controller('CreateCtrl', function($scope, BlogFactory, $state){
 
   $scope.createPost = function(){
-    console.log('button works', $scope.htmlVariable)
+      BlogFactory.createPost($scope.htmlVariable)
+      .then(function(){
+        $state.go('AdminPosts')
+      })
+      .then(function(){
+        $scope.htmlVariable = {};
+      })
+      .catch(function(err){
+        console.log(err);
+      })
   }
 
 });

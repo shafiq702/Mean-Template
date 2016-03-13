@@ -1,2 +1,3 @@
-app.controller('PostsCtrl', function($scope){
+app.controller('PostsCtrl', function($scope, allPosts){
+  $scope.allPosts = allPosts;
 });

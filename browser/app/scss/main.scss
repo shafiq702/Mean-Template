@@ -1,6 +1,8 @@
 * {
   box-sizing:border-box;
 }
-
+input{
+  margin-bottom: 1000px;
+}
 @import 'login/main';
 @import 'admin/main';

@@ -29,7 +29,7 @@ gulp.task('reloadCSS', function () {
 
 gulp.task('lintJS', function () {
 
-    return gulp.src(['./browser/app/**/*.js', './browser/utils/*.js', './server/**/*.js'])
+    return gulp.src(['./browser/app/**/*.js', './browser/utils/*.js', './browser/components/**/*.js', './server/**/*.js'])
         .pipe(plumber({
             errorHandler: notify.onError('Linting FAILED! Check your gulp process.')
         }))
@@ -40,7 +40,7 @@ gulp.task('lintJS', function () {
 });
 
 gulp.task('buildJS', ['lintJS'], function () {
-    return gulp.src(['./browser/*.js', './browser/utils/*.js', './browser/app/**/*.js'])
+    return gulp.src(['./browser/*.js', './browser/utils/*.js', './browser/components/**/*.js', './browser/app/**/*.js'])
         .pipe(plumber())
         .pipe(sourcemaps.init())
         .pipe(concat('main.js'))
@@ -75,7 +75,7 @@ gulp.task('buildCSSProduction', function () {
 });
 
 gulp.task('buildJSProduction', function () {
-    return gulp.src(['./browser/*.js', './browser/utils/*.js', './bowser/app/**/*.js'])
+    return gulp.src(['./browser/*.js', './browser/utils/*.js','./browser/components/**/*.js', './bowser/app/**/*.js'])
         .pipe(concat('main.js'))
         .pipe(babel())
         .pipe(ngAnnotate())
@@ -100,13 +100,21 @@ gulp.task('default', function () {
 
   gulp.start('build');
 
-// Run when anything inside of browser/js changes.
-gulp.watch('browser/js/**', function () {
+// Run when anything inside of browser/app changes.
+gulp.watch('browser/app/js/**', function () {
+  runSeq('buildJS', 'reload');
+});
+// Run when anything inside of browser/components changes.
+gulp.watch('browser/components/**', function () {
+  runSeq('buildJS', 'reload');
+});
+// Run when anything inside of browser/utils changes.
+gulp.watch('browser/utils/**', function () {
   runSeq('buildJS', 'reload');
 });
 
 // Run when anything inside of browser/scss changes.
-gulp.watch('browser/app/scss/**', function () {
+gulp.watch('browser/app/js/scss/**', function () {
   runSeq('buildCSS', 'reloadCSS');
 });
 
