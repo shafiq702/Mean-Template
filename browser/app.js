@@ -16,7 +16,6 @@ app.run(function ($rootScope, $state, AuthFactory) {
     }
 
     if(AuthFactory.isLoggedIn()){
-      console.log('logged in')
         return;
     }
     AuthFactory.getUserStatus()

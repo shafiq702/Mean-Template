@@ -26,6 +26,7 @@ router.post('/register', function(req, res) {
 });
 
 router.post('/login', function(req, res, next) {
+
   passport.authenticate('local', function(err, user, info) {
     if (err) {
       return next(err);
@@ -42,7 +43,8 @@ router.post('/login', function(req, res, next) {
         });
       }
       res.status(200).json({
-        status: 'Login successful!'
+        status: 'Login successful!',
+        username: user.username
       });
     });
   })(req, res, next);
@@ -51,7 +53,8 @@ router.post('/login', function(req, res, next) {
 router.get('/logout', function(req, res) {
   req.logout();
   res.status(200).json({
-    status: false
+    status: false,
+    username: null
   });
 });
 

@@ -1,9 +1,10 @@
 app.factory('AuthFactory', function($http, $cacheFactory) {
 
   function extractData(res){
+    username = res.data.username;
     return res.data.status
   }
-
+  var username;
   var currentUser;
 
   var setCurrentUser = function(user){
@@ -28,6 +29,9 @@ app.factory('AuthFactory', function($http, $cacheFactory) {
     },
     isLoggedIn: function() {
       return currentUser
+    },
+    username: function(){
+      return username;
     },
     getUserStatus: function(){
       return $http.get('/auth/status')

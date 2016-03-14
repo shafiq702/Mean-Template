@@ -1,5 +1,11 @@
 * {
   box-sizing: border-box; }
+.navbar-brand{
+  color: white;
+}
+.nav a{
+  color: white;
+}
 
 input {
   margin-bottom: 1000px; }
