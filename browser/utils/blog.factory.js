@@ -1,15 +1,13 @@
 app.factory('BlogFactory',function($http, AuthFactory){
-	var user = AuthFactory.currentUser();
 	return {
 		createPost: function(post){
-			post.author = user.name
-			return $http.post('/admin/post/create', post)
+			return $http.post('/blog/create', post)
       .then(function(post){
         return post.data
       })
 		},
 		findAllPosts: function(){
-			return $http.get('./admin/post')
+			return $http.get('/blog')
 			.then(function(allPosts){
 				return allPosts.data
 			})

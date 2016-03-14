@@ -1,5 +1,5 @@
 app.controller('CreateCtrl', function($scope, BlogFactory, $state){
-
+  
   $scope.createPost = function(){
       BlogFactory.createPost($scope.htmlVariable)
       .then(function(){

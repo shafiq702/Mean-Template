@@ -1,17 +1,16 @@
 var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
-var User = mongoose.model('User')
-var Blog = mongoose.model('Blog')
+var Blog = require('../../db/models/blog.js');
 
-router.get('/post', function(req, res, next){
+router.get('/', function(req, res, next){
   return Blog.find()
   .then(function(allPosts){
     res.json(allPosts)
   })
 })
 
-router.post('/post/create',function(req, res, next){
+router.post('/create',function(req, res, next){
   return Blog.create({
     title: req.body.title,
     contents: req.body.body,

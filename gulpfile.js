@@ -29,7 +29,7 @@ gulp.task('reloadCSS', function () {
 
 gulp.task('lintJS', function () {
 
-    return gulp.src(['./browser/app/**/*.js', './browser/utils/*.js', './browser/components/**/*.js', './server/**/*.js'])
+    return gulp.src(['./browser/*.js','./browser/app/**/*.js', './browser/utils/*.js', './browser/components/**/*.js', './server/**/*.js'])
         .pipe(plumber({
             errorHandler: notify.onError('Linting FAILED! Check your gulp process.')
         }))
@@ -102,6 +102,11 @@ gulp.task('default', function () {
 
 // Run when anything inside of browser/app changes.
 gulp.watch('browser/app/js/**', function () {
+  runSeq('buildJS', 'reload');
+});
+
+// Run when anything inside of browser/app changes.
+gulp.watch('browser//*.js', function () {
   runSeq('buildJS', 'reload');
 });
 // Run when anything inside of browser/components changes.

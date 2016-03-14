@@ -1,6 +1,7 @@
 var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
 
-var schema = new mongoose.Schema({
+var blogSchema = new Schema({
   title: {type: String, required: true},
   contents: {type: String, required: true},
   state: {type: String},
@@ -8,4 +9,4 @@ var schema = new mongoose.Schema({
   date: { type: Date, default: Date.now }
 })
 
-mongoose.model('Blog', schema);
+module.exports = mongoose.model('Blog', blogSchema);

@@ -21,7 +21,7 @@ var app = express();
 
 // require routes
 var authRoute = require('./routes/auth.js');
-// var blogRoute = require('./routes/blog.js')
+var blogRoute = require('./routes/blog.js');
 // define middleware
 app.use(logger('dev'));
 app.use(bodyParser.json());
@@ -47,7 +47,7 @@ passport.deserializeUser(User.deserializeUser());
 
 // routes
 app.use('/auth/', authRoute);
-// app.use('/blog/', blogRoute);
+app.use('/blog/', blogRoute);
 
 app.get('/', function(req, res) {
   res.sendFile(path.join(__dirname, './views', 'index.html'));

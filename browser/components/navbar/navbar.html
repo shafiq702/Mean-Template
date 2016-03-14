@@ -1,10 +1,11 @@
 <nav class="container-fluid navbar navbar-default" role="navigation">
-  	<a class="navbar-brand" href="/">Template</a>
-	<ul class="nav navbar-nav navbar-right">
-		<li><a ui-sref="HomeState">HOME</a></li>
-	 	<li><a ng-show="!loggedIn()" ui-sref-active="active" ui-sref="RegisterState">Register</a></li>
-	 	<li><a ng-show="!loggedIn()" ui-sref-active="active" ui-sref="LoginState">Login</a></li>
-    	<li><a ng-show="loggedIn()" ui-sref="AdminState">DASHBOARD</a></li>
-    	<li ng-show="loggedIn()" ng-click="logout()"><button class="navbar-btn btn btn-danger">LOGOUT</button></li>
-	</ul>
+  <a class="navbar-brand" href="/">Template</a>
+  <ul class="nav navbar-nav navbar-right">
+    <li><a ng-show="!loggedIn()" ui-sref-active="active" ui-sref="RegisterState">Register</a></li>
+    <li><a ng-show="!loggedIn()" ui-sref-active="active" ui-sref="LoginState">Login</a></li>
+    <li><a ng-show="loggedIn()" ui-sref="AdminState">DASHBOARD</a></li>
+    <li ng-show="loggedIn()" ng-click="logout()">
+      <button class="navbar-btn btn btn-danger">LOGOUT</button>
+    </li>
+  </ul>
 </nav>

@@ -10,8 +10,8 @@ var userSchema = new Schema({
         name: String
 });
 
-// methods ======================
-// generating a hash
+// // methods ======================
+// // generating a hash
 // userSchema.methods.generateHash = function(password) {
 //     return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
 // };
